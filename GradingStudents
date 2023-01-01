@@ -1,0 +1,12 @@
+def gradingStudents(grades):
+    
+    for i in range(len(grades)):
+        if grades[i]<38:
+            continue
+        elif grades[i]%5==3:
+            grades[i]=grades[i]+2
+        elif grades[i]%5==4:
+            grades[i]=grades[i]+1
+        else:
+            continue
+     return grades  
