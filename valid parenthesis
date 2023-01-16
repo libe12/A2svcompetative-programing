@@ -1,0 +1,10 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack=[]
+        oc={'(' : ')', '{' : '}', '[' : ']', }
+        for i in s:
+            if i in oc.keys():
+                stack.append(i)
+            elif stack==[] or i!=oc[stack.pop()]:
+                return False
+        return stack==[]
