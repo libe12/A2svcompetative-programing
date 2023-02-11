@@ -1,0 +1,39 @@
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        # Use slow/fast pointer technique to find the middle
+        # (i.e., the one at index n/2 - 1) of the list.
+        slow = head
+        fast = head.next
+        
+        # This check works only if the length the list is even.
+        while fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+            
+        # Reverse the second half of the list and then traverse
+        # both halves node by node.
+        first_half = head
+        second_half = self.reverse_list (slow.next)
+        
+        max_twin_sum = -2**31
+        while second_half is not None:
+            s = first_half.val + second_half.val
+            max_twin_sum = max (max_twin_sum, s)
+            
+            first_half, second_half = first_half.next, second_half.next
+            
+        return max_twin_sum
+        
+    # Encore ce fameux problème !
+    def reverse_list (self, head):
+        prev = None
+        curr = head
+        
+        while curr is not None:
+            tmp = curr.next
+            curr.next = prev
+            
+            prev = curr
+            curr = tmp
+        
+        return prev
