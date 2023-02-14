@@ -1,0 +1,15 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        dictt = {}
+        for i in range(len(s)):
+            dictt[s[i]] = i
+        ar = []
+        maxx = -1
+        for i in range(len(s)):
+            if maxx < dictt[s[i]]:
+                maxx = dictt[s[i]]
+            if i == maxx:
+                ar.append(i+1)
+        for i in range(len(ar)-1,0,-1):
+            ar[i]=ar[i]-ar[i-1]
+        return ar
