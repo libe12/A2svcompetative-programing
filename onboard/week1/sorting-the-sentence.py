@@ -1,12 +1,6 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
-        arr = s.split(' ')
-        
-        ans = []
-        for i in range(1,len(arr)+1):
-            for j in range(len(arr)):
-                if i == int(arr[j][-1]):
-                    ans.append(arr[j][:-1])
-        res = ' '.join(ans)
-        return res
-        
+        list1 = s.split(" ")
+        list1 = sorted(list1, key=lambda x:int(x[-1]))
+        list1 = [x[:-1] for x in list1]
+        return " ".join(list1)
