@@ -9,10 +9,10 @@ class Solution:
                 d[nums[l]]-=1
                 l+=1
             d[nums[r]]+=1
-            ans = max(ans,d[1])
+            if d[0] > 0:
+                ans = max(ans,d[1])
+            else:
+                ans = max(ans, d[1]-1)
+        return ans
         
-        for num in nums:
-            if num!=0:
-                continue
-            else:return ans
-        return ans-1
+        
