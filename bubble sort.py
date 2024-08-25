@@ -5,7 +5,7 @@ def countSwaps(a):
         for j in range(len(a)-1):
             if a[j]>a[j+1]:
                a[j],a[j+1]=a[j+1],a[j]
-               nums_count+=1
+               nums_count+=1   
                total_count+=1
         if nums_count==0:
             break
