@@ -4,7 +4,7 @@ class Solution:
         res = []
         
         for i in range(len(l)):
-            a = sorted(nums[l[i]:r[i]+1])
+            a = sorted(nums[l[i]:r[i]+1]) 
             if len(a)==1 or len(a)==2:
                 res.append(True)
                 continue
